@@ -1,0 +1,49 @@
+default:
+  controller: Main
+  action: home
+
+a-propos:
+  controller: Main
+  action: aboutUs
+
+about-us:
+  controller: Main
+  action: aboutUs
+
+contact:
+  controller: Main
+  action: contact
+
+login:
+  controller: Auth
+  action: login
+
+logout:
+  controller: Auth
+  action: logout
+
+register:
+  controller: Auth
+  action: register
+
+s-inscrire:
+  controller: Auth
+  action: register
+
+verify:
+  controller: Auth
+  action: verify
+
+dashboard:
+  controller: Admin
+  action: dashboard
+
+film-review:
+  controller: Main
+  action: review
+  params:
+    - id
+
+movies:
+  controller: Main
+  action: movies

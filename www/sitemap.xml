@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url>
+		<loc>"https://adibida.fr/default"</loc>
+	</url>
+	<url>
+		<loc>"https://adibida.fr/a-propos"</loc>
+	</url>
+	<url>
+		<loc>"https://adibida.fr/about-us"</loc>
+	</url>
+	<url>
+		<loc>"https://adibida.fr/contact"</loc>
+	</url>
+	<url>
+		<loc>"https://adibida.fr/login"</loc>
+	</url>
+	<url>
+		<loc>"https://adibida.fr/logout"</loc>
+	</url>
+	<url>
+		<loc>"https://adibida.fr/register"</loc>
+	</url>
+	<url>
+		<loc>"https://adibida.fr/s-inscrire"</loc>
+	</url>
+	<url>
+		<loc>"https://adibida.fr/verify"</loc>
+	</url>
+	<url>
+		<loc>"https://adibida.fr/dashboard"</loc>
+	</url>
+	<url>
+		<loc>"https://adibida.fr/film-review"</loc>
+	</url>
+</urlset>
