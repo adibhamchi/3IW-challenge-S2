@@ -28,6 +28,7 @@
         <option value="tv-movie">TV Movie</option>
     </select>
 
+    <input type="text" id="searchInput" class="w-full p-2 mt-4 rounded-md bg-gray-200" placeholder="Rechercher un film...">
 
     <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 sm:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3">
 
@@ -49,6 +50,7 @@
     document.addEventListener('DOMContentLoaded', function() {
         const categoryFilter = document.getElementById('categoryFilter');
         const movieItems = document.querySelectorAll('.movie-item');
+        const searchInput = document.getElementById('searchInput');
 
         categoryFilter.addEventListener('change', function() {
             const selectedCategory = categoryFilter.value;
@@ -58,6 +60,24 @@
                 const movieCategory = movie.getAttribute('data-category'); // Utiliser getAttribute au lieu de dataset
 
                 if (selectedCategory === 'all' || selectedCategory === movieCategory) {
+                    movie.style.display = 'block';
+                } else {
+                    movie.style.display = 'none';
+                }
+            });
+        });
+
+        searchInput.addEventListener('input', function() {
+            const searchTerm = searchInput.value.toLowerCase();
+
+            movieItems.forEach(function(movie) {
+                const movieCategory = movie.getAttribute('data-category');
+                const movieTitle = movie.querySelector('h1').textContent.toLowerCase();
+
+                const categoryMatch = (categoryFilter.value === 'all' || categoryFilter.value === movieCategory);
+                const titleMatch = movieTitle.startsWith(searchTerm);
+
+                if (categoryMatch && titleMatch) {
                     movie.style.display = 'block';
                 } else {
                     movie.style.display = 'none';
