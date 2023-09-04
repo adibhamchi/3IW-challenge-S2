@@ -42,6 +42,7 @@ if(!file_exists("routes.yml")){
 $routes = yaml_parse_file("routes.yml");
 
 if(empty($routes[$uri])){
+    http_response_code(404);
     $controller = new \App\Controllers\Main();
     $controller->notFound();
     exit;

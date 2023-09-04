@@ -45,8 +45,8 @@ class Login extends Validator
     public function getFields(): array
     {
         return [
-            'email' => $_POST['email'] ?? null,
-            'pwd' => $_POST['password'] ?? null,
+            'email' => htmlspecialchars($_POST['email']) ?? null,
+            'pwd' => htmlspecialchars($_POST['password'])  ?? null,
         ];
     }
 }

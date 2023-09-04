@@ -81,11 +81,11 @@ class Register extends Validator
     public function getFields(): array
     {
         return [
-            'firstname' => $_POST['firstname'] ?? null,
-            'lastname' => $_POST['lastname'] ?? null,
-            'email' => $_POST['email'] ?? null,
-            'pwd' => $_POST['pwd'] ?? null,
-            'country' => $_POST['country'] ?? null,
+            'firstname' => htmlspecialchars($_POST['firstname']) ?? null,
+            'lastname' => htmlspecialchars($_POST['lastname']) ?? null,
+            'email' => htmlspecialchars($_POST['email']) ?? null,
+            'pwd' => htmlspecialchars($_POST['pwd']) ?? null,
+            'country' => htmlspecialchars($_POST['country']) ?? null,
         ];
     }
 }
