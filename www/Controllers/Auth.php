@@ -40,6 +40,7 @@ class Auth
                     $_SESSION['user_id'] = $user->getId();
                     $_SESSION['email'] = $user->getEmail();
                     $_SESSION['firstname'] = $user->getFirstname();
+                    $_SESSION['token'] = $user->getToken();
                     if ($user->getStatus() == 2) {
                         header('Location: /dashboard');
                         exit();

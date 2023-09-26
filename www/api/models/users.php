@@ -45,15 +45,15 @@ class UserModel
 //        return $getUserByIdQuery->fetch();
 //    }
 //
-//    public static function getByToken($token)
-//    {
-//        $connection = getDatabaseConnection();
-//        $getUserByIdQuery = $connection->prepare("SELECT * FROM users WHERE token = :token;");
-//        $getUserByIdQuery->execute(["token" => $token]);
-//
-//        return $getUserByIdQuery->fetch();
-//    }
-//
+    public static function getByTokenAdmin($token)
+    {
+        $connection = getDatabaseConnection();
+        $getUserByIdQuery = $connection->prepare("SELECT * FROM esgi_user WHERE token = :token AND status = 2;");
+        $getUserByIdQuery->execute(["token" => $token]);
+
+        return $getUserByIdQuery->fetch();
+    }
+
     public static function deleteById($user)
     {
         $connection = getDatabaseConnection();
@@ -81,4 +81,6 @@ class UserModel
         $query = $connection->prepare($sql);
         $query->execute($json);
     }
+
+
 }

@@ -34,6 +34,12 @@ $route = $_REQUEST["route"] ?? "undefined";
  */
 $method = $_SERVER["REQUEST_METHOD"];
 
+$token = $_SERVER["HTTP_AUTHORIZATION"] ?? "";
+
+ if (empty($token)) {
+    Response::json(401, [], ["error" => "Unauthorized"]);
+    die();
+}
 
 if ($route === "comments") {
 

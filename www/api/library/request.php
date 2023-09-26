@@ -2,18 +2,6 @@
 
 class Request
 {
-    private const API_KEY = "your-hardcoded-api-key";
-
-    public static function validateAPIKey()    {
-        $providedApiKey = self::getHeader('Authorization');
-
-        if ($providedApiKey !== self::API_KEY) {
-            header('HTTP/1.0 403 Forbidden');
-            echo json_encode(["error" => "Invalid API key"]);
-            exit;
-        }
-    }
-
 
     public static function getJsonBody()
     {
@@ -24,7 +12,7 @@ class Request
          * @see https://www.php.net/manual/en/wrappers.php.php
          */
 
-        self::validateAPIKey();
+
         $rawInput = file_get_contents("php://input");
 
         /**
