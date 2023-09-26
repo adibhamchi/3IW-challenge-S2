@@ -1,3 +1,13 @@
+<?php
+$config = json_decode(file_get_contents(__DIR__ . "/../cms-config/config.json"), true);
+
+if (!$config["installed"]) {
+    header("Location: http://localhost:667");
+    exit();
+}
+?>
+
+
 <nav class="bg-gray-800 fixed w-full z-50">
 <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div class="relative flex h-16 items-center justify-between">
