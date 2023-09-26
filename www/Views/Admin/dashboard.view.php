@@ -175,7 +175,7 @@ include __DIR__ . "/../adminHeader.view.php";
             data: JSON.stringify(data),
             // Ajouter un header avec le token d'authentification
             headers: {
-                'Authorization': 'Bearer ' + <? $_SESSION['token'] ?> // Remplacez "yourAuthToken" par votre token d'authentification
+                'Authorization': 'Bearer ' + <?php $_SESSION['token'] ?> // Remplacez "yourAuthToken" par votre token d'authentification
             },
             success: function(response) {
                 console.log(response);
@@ -208,7 +208,7 @@ include __DIR__ . "/../adminHeader.view.php";
             data: JSON.stringify(data), // Convert the JavaScript object to a JSON string
             // Ajouter un header avec le token d'authentification
             headers: {
-                'Authorization': 'Bearer ' + <? $_SESSION['token'] ?> // Remplacez "yourAuthToken" par votre token d'authentification
+                'Authorization': 'Bearer ' + <?php $_SESSION['token'] ?> // Remplacez "yourAuthToken" par votre token d'authentification
             },
             success: function(response) {
                 console.log(response);
@@ -239,7 +239,7 @@ include __DIR__ . "/../adminHeader.view.php";
             data: JSON.stringify(data), // Convert the JavaScript object to a JSON string
             // Ajouter un header avec le token d'authentification
             headers: {
-                'Authorization': 'Bearer ' + '<? $_SESSION['token'] ?>' // Remplacez "yourAuthToken" par votre token d'authentification
+                'Authorization': 'Bearer ' + <?php $_SESSION['token'] ?> // Remplacez "yourAuthToken" par votre token d'authentification
             },
             success: function(response) {
                 console.log(response);
