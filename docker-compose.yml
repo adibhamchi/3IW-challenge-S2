@@ -2,17 +2,18 @@ version: '3'
 services:
   web:
     build:
-        context: .
-        dockerfile: ./site/Dockerfile
+      context: .
+      dockerfile: ./site/Dockerfile
     environment:
       - COMPOSER_ALLOW_SUPERUSER=1
     ports :
-     - "80:80"
+      - "80:80"
+      - "443:443"
     volumes:
-     - ./www:/var/www/html/
-     - ./server/000-default.conf:/etc/apache2/sites-available/000-default.conf
-     - ./server/apache2.conf:/etc/apache2/apache2.conf
-     - ./server/php.ini:/usr/local/etc/php/php.ini
+      - ./www:/var/www/html/
+      - ./server/000-default.conf:/etc/apache2/sites-available/000-default.conf
+      - ./server/apache2.conf:/etc/apache2/apache2.conf
+      - ./server/php.ini:/usr/local/etc/php/php.ini
 
   database:
     image: postgres
