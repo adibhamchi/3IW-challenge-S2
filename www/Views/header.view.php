@@ -1,10 +1,9 @@
 <?php
 $config = json_decode(file_get_contents(__DIR__ . "/../cms-config/config.json"), true);
-
-if (!$config["installed"]) {
-    header("Location: http://localhost:667");
-    exit();
-}
+if (empty($config) || $config === null) {
+    header("Location: http://localhost:667/");
+    exit;
+} 
 ?>
 
 

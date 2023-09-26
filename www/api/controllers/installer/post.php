@@ -1,4 +1,7 @@
 <?php
+header("Access-Control-Allow-Origin: http://localhost:667");
+
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
 require __DIR__ . "/../../library/json-response.php";
 require __DIR__ . "/../../library/request.php";
