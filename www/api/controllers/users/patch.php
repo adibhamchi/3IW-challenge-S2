@@ -1,8 +1,8 @@
 <?php
 
-require __DIR__ . "/../../library/json-response.php";
-require __DIR__ . "/../../library/request.php";
-require __DIR__ . "/../../models/users.php";
+require_once __DIR__ . "/../../library/json-response.php";
+require_once __DIR__ . "/../../library/request.php";
+require_once __DIR__ . "/../../models/users.php";
 try {
     $json = Request::getJsonBody();
     UserModel::updateById($json);

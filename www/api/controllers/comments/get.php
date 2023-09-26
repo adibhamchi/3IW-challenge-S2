@@ -1,7 +1,7 @@
 <?php
 
-require __DIR__ . "/../../library/json-response.php";
-require __DIR__ . "/../../models/comments.php";
+require_once __DIR__ . "/../../library/json-response.php";
+require_once __DIR__ . "/../../models/comments.php";
 
 try {
     $comments = CommentModel::getAll();

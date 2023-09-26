@@ -40,126 +40,173 @@ $token = $_SERVER["HTTP_AUTHORIZATION"] ?? "";
      require __DIR__ . "/library/json-response.php";
     Response::json(401, [], ["error" => "Unauthorized"]);
     die();
-}
-
-if ($route === "comments") {
-
-    if ($method === "POST") {
-        /**
-         * Importe le contenu d'un fichier spécifique dans un autre
-         *
-         * @see https://www.php.net/manual/en/function.include.php
-         */
-        include __DIR__ . "/controllers/comments/post.php";
-
-        /**
-         * Permet de stopper l'exécution du processus à l'endroit où est appelé cette fonction
-         *
-         * @see https://www.php.net/manual/en/function.die.php
-         */
+} else {
+    require __DIR__ . "/models/users.php";
+    $user = UserModel::getByToken($token);
+    if (empty($user)) {
+        require __DIR__ . "/library/json-response.php";
+        Response::json(401, [], ["error" => "Unauthorized"]);
         die();
+    } elseif($user['status'] === 2) {
+
+        if ($route === "comments") {
+
+            if ($method === "POST") {
+                /**
+                 * Importe le contenu d'un fichier spécifique dans un autre
+                 *
+                 * @see https://www.php.net/manual/en/function.include.php
+                 */
+                include __DIR__ . "/controllers/comments/post.php";
+
+                /**
+                 * Permet de stopper l'exécution du processus à l'endroit où est appelé cette fonction
+                 *
+                 * @see https://www.php.net/manual/en/function.die.php
+                 */
+                die();
+            }
+
+            if ($method === "DELETE") {
+                /**
+                 * Importe le contenu d'un fichier spécifique dans un autre
+                 *
+                 * @see https://www.php.net/manual/en/function.include.php
+                 */
+                include __DIR__ . "/controllers/comments/delete.php";
+
+                /**
+                 * Permet de stopper l'exécution du processus à l'endroit où est appelé cette fonction
+                 *
+                 * @see https://www.php.net/manual/en/function.die.php
+                 */
+                die();
+            }
+        }
+
+        if ($route === "films") {
+            if ($method === "POST") {
+                /**
+                 * Importe le contenu d'un fichier spécifique dans un autre
+                 *
+                 * @see https://www.php.net/manual/en/function.include.php
+                 */
+                include __DIR__ . "/controllers/films/post.php";
+
+                /**
+                 * Permet de stopper l'exécution du processus à l'endroit où est appelé cette fonction
+                 *
+                 * @see https://www.php.net/manual/en/function.die.php
+                 */
+                die();
+            }
+
+            if ($method === "DELETE") {
+                /**
+                 * Importe le contenu d'un fichier spécifique dans un autre
+                 *
+                 * @see https://www.php.net/manual/en/function.include.php
+                 */
+                include __DIR__ . "/controllers/films/delete.php";
+
+                /**
+                 * Permet de stopper l'exécution du processus à l'endroit où est appelé cette fonction
+                 *
+                 * @see https://www.php.net/manual/en/function.die.php
+                 */
+                die();
+            }
+
+            if ($method === "PATCH") {
+                /**
+                 * Importe le contenu d'un fichier spécifique dans un autre
+                 *
+                 * @see https://www.php.net/manual/en/function.include.php
+                 */
+                include __DIR__ . "/controllers/films/patch.php";
+
+                /**
+                 * Permet de stopper l'exécution du processus à l'endroit où est appelé cette fonction
+                 *
+                 * @see https://www.php.net/manual/en/function.die.php
+                 */
+                die();
+            }
+        }
+
+        if ($route === "users") {
+            if ($method === "PATCH") {
+                /**
+                 * Importe le contenu d'un fichier spécifique dans un autre
+                 *
+                 * @see https://www.php.net/manual/en/function.include.php
+                 */
+                include __DIR__ . "/controllers/users/patch.php";
+
+                /**
+                 * Permet de stopper l'exécution du processus à l'endroit où est appelé cette fonction
+                 *
+                 * @see https://www.php.net/manual/en/function.die.php
+                 */
+                die();
+            }
+
+            if ($method === "DELETE") {
+                /**
+                 * Importe le contenu d'un fichier spécifique dans un autre
+                 *
+                 * @see https://www.php.net/manual/en/function.include.php
+                 */
+                include __DIR__ . "/controllers/users/delete.php";
+
+                /**
+                 * Permet de stopper l'exécution du processus à l'endroit où est appelé cette fonction
+                 *
+                 * @see https://www.php.net/manual/en/function.die.php
+                 */
+                die();
+            }
+        }
+
+
+    } elseif($user['status'] === 1) {
+
+        if ($route === "comments") {
+
+            if ($method === "POST") {
+                /**
+                 * Importe le contenu d'un fichier spécifique dans un autre
+                 *
+                 * @see https://www.php.net/manual/en/function.include.php
+                 */
+                include __DIR__ . "/controllers/comments/post.php";
+
+                /**
+                 * Permet de stopper l'exécution du processus à l'endroit où est appelé cette fonction
+                 *
+                 * @see https://www.php.net/manual/en/function.die.php
+                 */
+                die();
+            }
+
+            if ($method === "DELETE") {
+                /**
+                 * Importe le contenu d'un fichier spécifique dans un autre
+                 *
+                 * @see https://www.php.net/manual/en/function.include.php
+                 */
+                include __DIR__ . "/controllers/comments/delete.php";
+
+                /**
+                 * Permet de stopper l'exécution du processus à l'endroit où est appelé cette fonction
+                 *
+                 * @see https://www.php.net/manual/en/function.die.php
+                 */
+                die();
+            }
+        }
     }
-
-    if ($method === "DELETE") {
-        /**
-         * Importe le contenu d'un fichier spécifique dans un autre
-         *
-         * @see https://www.php.net/manual/en/function.include.php
-         */
-        include __DIR__ . "/controllers/comments/delete.php";
-
-        /**
-         * Permet de stopper l'exécution du processus à l'endroit où est appelé cette fonction
-         *
-         * @see https://www.php.net/manual/en/function.die.php
-         */
-        die();
-    }
-}
-
-if ($route === "films") {
-    if ($method === "POST") {
-        /**
-         * Importe le contenu d'un fichier spécifique dans un autre
-         *
-         * @see https://www.php.net/manual/en/function.include.php
-         */
-        include __DIR__ . "/controllers/films/post.php";
-
-        /**
-         * Permet de stopper l'exécution du processus à l'endroit où est appelé cette fonction
-         *
-         * @see https://www.php.net/manual/en/function.die.php
-         */
-        die();
-    }
-
-    if ($method === "DELETE") {
-        /**
-         * Importe le contenu d'un fichier spécifique dans un autre
-         *
-         * @see https://www.php.net/manual/en/function.include.php
-         */
-        include __DIR__ . "/controllers/films/delete.php";
-
-        /**
-         * Permet de stopper l'exécution du processus à l'endroit où est appelé cette fonction
-         *
-         * @see https://www.php.net/manual/en/function.die.php
-         */
-        die();
-    }
-
-    if ($method === "PATCH") {
-        /**
-         * Importe le contenu d'un fichier spécifique dans un autre
-         *
-         * @see https://www.php.net/manual/en/function.include.php
-         */
-        include __DIR__ . "/controllers/films/patch.php";
-
-        /**
-         * Permet de stopper l'exécution du processus à l'endroit où est appelé cette fonction
-         *
-         * @see https://www.php.net/manual/en/function.die.php
-         */
-        die();
-    }
-}
-
-if ($route === "users") {
-    if ($method === "PATCH") {
-        /**
-         * Importe le contenu d'un fichier spécifique dans un autre
-         *
-         * @see https://www.php.net/manual/en/function.include.php
-         */
-        include __DIR__ . "/controllers/users/patch.php";
-
-        /**
-         * Permet de stopper l'exécution du processus à l'endroit où est appelé cette fonction
-         *
-         * @see https://www.php.net/manual/en/function.die.php
-         */
-        die();
-    }
-
-    if ($method === "DELETE") {
-        /**
-         * Importe le contenu d'un fichier spécifique dans un autre
-         *
-         * @see https://www.php.net/manual/en/function.include.php
-         */
-        include __DIR__ . "/controllers/users/delete.php";
-
-        /**
-         * Permet de stopper l'exécution du processus à l'endroit où est appelé cette fonction
-         *
-         * @see https://www.php.net/manual/en/function.die.php
-         */
-        die();
-    }
-}
+ }
 
 /**
  * Importe le contenu d'un fichier spécifique dans un autre
