@@ -37,6 +37,7 @@ $method = $_SERVER["REQUEST_METHOD"];
 $token = $_SERVER["HTTP_AUTHORIZATION"] ?? "";
 
  if (empty($token)) {
+     require __DIR__ . "/library/json-response.php";
     Response::json(401, [], ["error" => "Unauthorized"]);
     die();
 }
